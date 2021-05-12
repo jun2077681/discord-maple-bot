@@ -1,3 +1,5 @@
+from discord.ext import commands, tasks
+
 class HillaTimer:
     def __init__(self):
         self.time = 60 * 30
@@ -15,3 +17,7 @@ class HillaTimer:
             return True
 
         return False
+
+    async def start_timer(self, ctx: commands.context.Context):
+        self.decrease_time()
+        await ctx.send(f'남은 시간: {self.time // 60} : {self.time % 60}')
