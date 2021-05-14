@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands, tasks
+from discord import FFmpegPCMAudio
 from config.config import token as secret_token
 import datetime
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -36,5 +37,10 @@ async def 진힐라(ctx: commands.context.Context, command: str = ''):
         return
     elif command == '3':
         return
+
+@bot.command()
+async def 테스트(ctx: commands.context.Context):
+    vc: discord.voice_client.VoiceClient = await ctx.author.voice.channel.connect()
+    vc.play(FFmpegPCMAudio(executable=r"ffmpeg-4.4-essentials_build/bin/ffmpeg.exe", source='test.mp3'), after=lambda e: print('done', e))
 
 bot.run(secret_token)
