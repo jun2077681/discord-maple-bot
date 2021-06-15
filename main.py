@@ -4,7 +4,7 @@ from discord import FFmpegPCMAudio
 from config.config import token as secret_token
 import datetime
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from hillaTimer import HillaTimer
+from modules.hillaTimer import HillaTimer
 
 bot = commands.Bot(command_prefix = '!')
 scheduler = AsyncIOScheduler()

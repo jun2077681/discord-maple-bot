@@ -2,3 +2,4 @@ config/
 __pycache__/
 venv-discord-maple-bot/
 *.mp3
+.vscode/
